@@ -1,0 +1,79 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="loanId">
+      <th mat-header-cell *matHeaderCellDef>Loan Id</th>
+      <td mat-cell *matCellDef="let element"> {{element.loanId}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="loanName">
+      <th mat-header-cell *matHeaderCellDef>Loan Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.loanName}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="loanEmail">
+      <th mat-header-cell *matHeaderCellDef> Loan Email</th>
+      <td mat-cell *matCellDef="let element"> {{element.loanEmail}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="loanAccountNo">
+      <th mat-header-cell *matHeaderCellDef> Account number</th>
+      <td mat-cell *matCellDef="let element"> {{element.loanAccountNo}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="loanPhoneNo">
+        <th mat-header-cell *matHeaderCellDef> Phone number</th>
+        <td mat-cell *matCellDef="let element"> {{element.loanPhoneNo}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="loanAadharNo">
+        <th mat-header-cell *matHeaderCellDef> Aadhar number</th>
+        <td mat-cell *matCellDef="let element"> {{element.loanAadharNo}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="loanPanNo">
+        <th mat-header-cell *matHeaderCellDef> Pan number</th>
+        <td mat-cell *matCellDef="let element"> {{element.loanPanNo}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="loanType">
+        <th mat-header-cell *matHeaderCellDef> Loan Type</th>
+        <td mat-cell *matCellDef="let element"> {{element.loanType}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="loanAmount">
+        <th mat-header-cell *matHeaderCellDef> Amount</th>
+        <td mat-cell *matCellDef="let element"> {{element.loanAmount}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="loanAnnualIncome">
+        <th mat-header-cell *matHeaderCellDef> Annual Income</th>
+        <td mat-cell *matCellDef="let element"> {{element.loanAnnualIncome}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef> Address</th>
+        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Status</th>
+        <td mat-cell *matCellDef="let element">
+            <button mat-raised-button (click)="approve(element)" *ngIf="!status">Approve</button>
+            <p *ngIf="status">Approved</p>
+            <button mat-raised-button (click)="reject(element)" *ngIf="status">Reject</button>
+        </td>
+    </ng-container>
+    
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+{{status | json}}
+  
+  
